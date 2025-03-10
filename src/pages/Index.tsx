@@ -9,6 +9,7 @@ import FAQSection from "../components/FAQSection";
 import DisclaimerSection from "../components/DisclaimerSection";
 import CTASection from "../components/CTASection";
 import Footer from "../components/Footer";
+import DisclaimerPopup from "../components/DisclaimerPopup";
 
 const Index = () => {
   useEffect(() => {
@@ -43,6 +44,9 @@ const Index = () => {
     <div className="min-h-screen relative overflow-x-hidden bg-background text-foreground">
       {/* Background elements */}
       <div className="fixed inset-0 z-0 cyberpunk-gradient"></div>
+      
+      {/* Disclaimer Popup */}
+      <DisclaimerPopup />
       
       {/* Content */}
       <Navbar />
