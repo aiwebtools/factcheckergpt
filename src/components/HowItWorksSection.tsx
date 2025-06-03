@@ -9,33 +9,33 @@ const HowItWorksSection = () => {
   const steps = [
     {
       icon: <Search className="text-primary" size={28} />,
-      title: "Data Collection",
-      description: "Fact Checker GPT scans websites, articles, and claims, gathering information from multiple sources across the web."
+      title: "AI Data Collection",
+      description: "Our free AI fact checker scans websites, articles, and claims, gathering information from multiple trusted sources across the web."
     },
     {
       icon: <Database className="text-primary" size={28} />,
-      title: "Cross-Reference",
-      description: "Information is cross-referenced with trustworthy sources to verify authenticity and validate claims."
+      title: "Smart Cross-Reference",
+      description: "Advanced AI algorithms cross-reference information with trustworthy sources to verify authenticity and validate claims using machine learning."
     },
     {
       icon: <Brain className="text-primary" size={28} />,
-      title: "Bias Analysis",
-      description: "AI algorithms detect language patterns that may indicate bias, partisan perspectives, or misleading information."
+      title: "AI Bias Analysis",
+      description: "Our AI tools detect language patterns that may indicate bias, partisan perspectives, or misleading information using natural language processing."
     },
     {
       icon: <BarChart className="text-primary" size={28} />,
-      title: "Truth Scoring",
-      description: "A detailed truth score is calculated based on verified facts, source credibility, and identified biases."
+      title: "AI Truth Scoring",
+      description: "A detailed truth score is calculated based on verified facts, source credibility, and identified biases using our proprietary AI algorithms."
     },
     {
       icon: <Shield className="text-primary" size={28} />,
-      title: "Report Generation",
-      description: "A comprehensive report is generated highlighting facts, biases, and unreliable sources in the content."
+      title: "AI Report Generation",
+      description: "A comprehensive AI-generated report highlights facts, biases, and unreliable sources in the content with detailed explanations."
     },
     {
       icon: <Share2 className="text-primary" size={28} />,
-      title: "Next Steps",
-      description: "Fact Checker GPT suggests actionable next steps to further verify information and expand your understanding."
+      title: "AI Recommendations",
+      description: "Our AI tool suggests actionable next steps to further verify information and expand your understanding of the topic."
     }
   ];
 
@@ -72,11 +72,11 @@ const HowItWorksSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1 rounded-full bg-white/10 backdrop-blur-sm text-primary text-sm font-medium mb-6">
-            ⚙️ Process
+            ⚙️ Free AI Tools Process
           </div>
-          <h2 className="section-title">How Fact Checker GPT Works</h2>
+          <h2 className="section-title">How Our Free AI Fact Checker Works</h2>
           <p className="text-white/70 max-w-2xl mx-auto">
-            Using advanced AI algorithms and cross-referencing techniques to deliver reliable fact-checking results
+            Using advanced AI algorithms and machine learning techniques to deliver reliable fact-checking results through our free AI web tools
           </p>
         </div>
         
@@ -103,8 +103,9 @@ const HowItWorksSection = () => {
             className="btn-primary"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Try free AI fact checker tool now"
           >
-            Try Fact Checker GPT Now
+            Try Free AI Fact Checker Now
           </a>
         </div>
       </div>

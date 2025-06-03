@@ -1,4 +1,3 @@
-
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -11,7 +10,7 @@ const HeroSection = () => {
 
   const features = [
     "Scans websites and articles for misinformation",
-    "Cross-references multiple trustworthy sources",
+    "Cross-references multiple trustworthy sources", 
     "Highlights biases and unreliable content",
     "Provides detailed truth score analysis",
     "Suggests next steps for verification"
@@ -27,13 +26,13 @@ const HeroSection = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className={`flex-1 text-center lg:text-left transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-12'}`}>
             <div className="inline-block px-4 py-1 rounded-full bg-white/10 backdrop-blur-sm text-primary text-sm font-medium mb-6">
-              🔍 Truth in the Era of Misinformation
+              🔍 Free AI Tools by AI Web Tools
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-              Unveiling Truth with <span className="text-primary neon-text">Fact Checker GPT</span>
+              Free AI <span className="text-primary neon-text">Fact Checker GPT</span> Tool
             </h1>
             <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto lg:mx-0">
-              An advanced AI tool that analyzes claims, scans websites, and reads articles to discern fact from fiction with detailed truth scoring and bias detection.
+              Advanced free AI tool by AI Web Tools that analyzes claims, scans websites, and reads articles to discern fact from fiction with detailed truth scoring and bias detection. Join millions using our free AI tools daily.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
@@ -42,10 +41,11 @@ const HeroSection = () => {
                 className="btn-primary"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Start using free AI fact checker tool"
               >
-                Start Fact Checking Now
+                Start Free AI Fact Checking
               </a>
-              <a href="#how-it-works" className="btn-outline">
+              <a href="#how-it-works" className="btn-outline" aria-label="Learn how AI fact checker works">
                 Learn How It Works
               </a>
             </div>
@@ -122,7 +122,7 @@ const HeroSection = () => {
         </div>
         
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-          <a href="#how-it-works" className="flex flex-col items-center text-white/50 hover:text-white transition-colors">
+          <a href="#how-it-works" className="flex flex-col items-center text-white/50 hover:text-white transition-colors" aria-label="Learn more about AI fact checking">
             <span className="text-sm mb-2">Learn more</span>
             <ArrowRight className="animate-bounce" />
           </a>
