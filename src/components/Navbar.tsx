@@ -46,7 +46,7 @@ const Navbar = () => {
           <a href="#faq" className="nav-link">FAQ</a>
           <a href="#disclaimer" className="nav-link">Disclaimer</a>
           <a 
-            href="https://www.aiwebtools.ai" 
+            href="https://aiwebtools.lovable.app/?via=aiwebtools" 
             className="nav-link"
             target="_blank"
             rel="noopener noreferrer"
