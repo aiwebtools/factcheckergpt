@@ -40,7 +40,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://www.aiwebtools.ai" 
+                  href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                   className="text-white/60 hover:text-primary transition-colors flex items-center gap-1"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -68,7 +68,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://aiwebtools.ai/terms-of-services" 
+                  href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                   className="text-white/60 hover:text-primary transition-colors flex items-center gap-1"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -105,7 +105,7 @@ const Footer = () => {
 
             <div className="mt-8">
               <a 
-                href="https://www.aiwebtools.ai" 
+                href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                 className="inline-block px-5 py-2 rounded-full bg-primary/20 border border-primary/50 text-primary hover:bg-primary/30 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -119,7 +119,7 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/40 text-sm mb-4 md:mb-0">
             <a 
-              href="https://www.aiwebtools.ai" 
+              href="https://aiwebtools.lovable.app/?via=aiwebtools" 
               className="hover:text-primary transition-colors"
               target="_blank"
               rel="noopener noreferrer"
