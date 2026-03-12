@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
@@ -9,45 +9,59 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  const closeMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(false);
+  }, []);
+
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen((prev) => !prev);
+  }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 ${
-        isScrolled ? "bg-black/70 backdrop-blur-md shadow-md" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 transition-all duration-300 ${
+        isScrolled || isMobileMenuOpen
+          ? "bg-black/80 backdrop-blur-md shadow-md"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Logo />
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           <a 
             href="https://chatgpt.com/g/g-6781290e4b20819199108046b163116a-fact-checker-gpt" 
-            className="btn-primary"
+            className="btn-primary text-sm lg:text-base whitespace-nowrap"
             target="_blank"
             rel="noopener noreferrer"
           >
             USE FACT CHECKER GPT
           </a>
-          <a href="#faq" className="nav-link">FAQ</a>
-          <a href="#disclaimer" className="nav-link">Disclaimer</a>
+          <a href="#faq" className="nav-link text-sm lg:text-base">FAQ</a>
+          <a href="#disclaimer" className="nav-link text-sm lg:text-base">Disclaimer</a>
           <a 
             href="https://aiwebtools.lovable.app/?via=aiwebtools" 
-            className="nav-link"
+            className="nav-link text-sm lg:text-base whitespace-nowrap"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -57,45 +71,58 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-2 -mr-2 touch-manipulation"
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Navigation */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-md animate-fade-in">
-          <div className="container mx-auto px-4 py-4 flex flex-col items-center gap-4">
-            <a 
-              href="https://chatgpt.com/g/g-6781290e4b20819199108046b163116a-fact-checker-gpt" 
-              className="btn-primary w-full text-center"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              USE FACT CHECKER GPT
-            </a>
-            <a href="#faq" className="nav-link py-3" onClick={() => setIsMobileMenuOpen(false)}>
-              FAQ
-            </a>
-            <a href="#disclaimer" className="nav-link py-3" onClick={() => setIsMobileMenuOpen(false)}>
-              Disclaimer
-            </a>
-            <a 
-              href="https://aiwebtools.lovable.app/?via=aiwebtools" 
-              className="nav-link py-3"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              More AI Tools
-            </a>
-          </div>
-        </div>
-      )}
+      {/* Mobile Navigation - always rendered, toggled via CSS for instant response */}
+      <div
+        className={`md:hidden fixed inset-0 top-[56px] bg-black/95 backdrop-blur-md transition-all duration-200 ease-out ${
+          isMobileMenuOpen
+            ? "opacity-100 visible translate-y-0"
+            : "opacity-0 invisible -translate-y-2"
+        }`}
+      >
+        <nav className="container mx-auto px-4 py-6 flex flex-col items-center gap-2">
+          <a 
+            href="https://chatgpt.com/g/g-6781290e4b20819199108046b163116a-fact-checker-gpt" 
+            className="btn-primary w-full max-w-sm text-center text-base py-4"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMobileMenu}
+          >
+            USE FACT CHECKER GPT
+          </a>
+          <a 
+            href="#faq" 
+            className="nav-link py-4 text-lg w-full max-w-sm text-center" 
+            onClick={closeMobileMenu}
+          >
+            FAQ
+          </a>
+          <a 
+            href="#disclaimer" 
+            className="nav-link py-4 text-lg w-full max-w-sm text-center" 
+            onClick={closeMobileMenu}
+          >
+            Disclaimer
+          </a>
+          <a 
+            href="https://aiwebtools.lovable.app/?via=aiwebtools" 
+            className="nav-link py-4 text-lg w-full max-w-sm text-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMobileMenu}
+          >
+            More AI Tools
+          </a>
+        </nav>
+      </div>
     </header>
   );
 };
