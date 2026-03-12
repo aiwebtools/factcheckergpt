@@ -67,7 +67,7 @@ const DisclaimerSection = () => {
                 Privacy Policy
               </a>
               <a 
-                href="https://aiwebtools.ai/terms-of-services" 
+                href="https://aiwebtools.lovable.app/?via=aiwebtools" 
                 className="text-primary hover:text-primary/80 text-sm"
                 target="_blank"
                 rel="noopener noreferrer"
